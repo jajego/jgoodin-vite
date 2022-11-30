@@ -10,10 +10,8 @@ function App() {
   const [mode, setMode] = useState("projects");
   // find a way to nab their os pref
   const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  const [theme, setTheme] = useLocalStorage(
-    "theme",
-    defaultDark ? "dark" : "light"
-  );
+  console.log(`defaultDark is ${defaultDark}`);
+  const [theme, setTheme] = useState(defaultDark ? "dark" : "light");
 
   const switchTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";

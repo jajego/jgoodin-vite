@@ -16,8 +16,8 @@ export default function About() {
           the train.
         </p>
         <p>
-          Sites serve people when they're useful, simple, and fun. If you agree,
-          let's work! yames.git@gmail.com
+          Sites serve people when they're simple, useful, and fun. If you think
+          so too, let's work together! yames.git@gmail.com
         </p>
       </div>
     </div>

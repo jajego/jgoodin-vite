@@ -15,7 +15,7 @@ export default function Projects() {
             <div class="ginkgo-description">
               <div class="ul-text">
                 A Discord bot + React app that pulls and displays shareable bird
-                sighting data from Cornell's eBird API.
+                sighting data from Cornell's eBird API
               </div>
               {/* <ul>
                 <li>
