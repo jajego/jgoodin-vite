@@ -21,7 +21,7 @@
   --card-bg-color: rgb(41, 41, 41);
   --card-box-shadow: none;
   --photo-opacity: 85%;
-  --accent-color: antiquewhite;
+  --accent-color: rgb(255, 187, 97);
 }
 
 html,
@@ -44,7 +44,7 @@ body {
   padding: 0;
   background-color: var(--main-bg-color);
   height: 100%;
-  transition-duration: 0.4s;
+  transition-duration: 0.3s;
 }
 
 .app {
@@ -71,6 +71,12 @@ body {
   gap: 255px;
 }
 
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  width: 825px;
+}
+
 .title {
   display: flex;
   flex-direction: column;
@@ -91,12 +97,12 @@ body {
   font-size: 2rem;
   font-weight: 800;
   color: var(--main-text-color);
-  transition-duration: 0.4s;
+  transition-duration: 0.3s;
 }
 .job {
   font-size: 2rem;
   color: var(--second-text-color);
-  transition-duration: 0.4s;
+  transition-duration: 0.3s;
 }
 
 #flower {
@@ -151,7 +157,7 @@ body {
 .about-btn {
   height: fit-content;
   cursor: pointer;
-  transition-duration: 0.4s;
+  transition-duration: 0.3s;
 }
 
 .projects-btn:hover,
@@ -165,7 +171,7 @@ body {
   padding: 5px;
   border-radius: 50%;
   text-align: center;
-  transition-duration: 0.4s;
+  transition-duration: 0.3s;
   color: var(--main-text-color);
   font-size: 1.75rem;
   cursor: pointer;
@@ -175,7 +181,10 @@ body {
   color: gray;
 }
 
-.linkedin {
+.linkedin,
+.github,
+.mode {
+  animation: fadeIn 0.3s forwards;
   margin-top: 2px;
 }
 
@@ -224,7 +233,7 @@ body {
 
 .about {
   background-color: var(--card-bg-color);
-  transition-duration: 0.4s;
+  transition-duration: 0.3s;
 
   padding-top: 30px;
   padding-left: 30px;
@@ -248,7 +257,7 @@ body {
 
 .me {
   border-radius: 50%;
-  transition-duration: 0.4s;
+  transition-duration: 0.3s;
   opacity: var(--photo-opacity);
 }
 
@@ -283,7 +292,7 @@ body {
   gap: 10px;
 
   color: var(--main-text-color);
-  transition-duration: 0.4s;
+  transition-duration: 0.3s;
   box-shadow: var(--card-box-shadow);
   padding-top: 12px;
 }
@@ -311,7 +320,7 @@ body {
   text-align: center;
   color: var(--main-text-color);
   margin-bottom: 15px;
-  transition-duration: 0.4s;
+  transition-duration: 0.3s;
 }
 
 .project-title:hover > a {
@@ -329,7 +338,7 @@ body {
   text-align: center;
   color: var(--second-text-color);
   width: 300px;
-  transition-duration: 0.4s;
+  transition-duration: 0.3s;
 }
 
 .learn-more {
@@ -371,7 +380,7 @@ body {
   background-color: rgba(85, 227, 57, 0.463);
   font-size: 0.8rem;
   color: var(--main-text-color);
-  transition-duration: 0.4s;
+  transition-duration: 0.3s;
 }
 
 .git {
@@ -392,12 +401,10 @@ body {
 .me-icon {
   height: 140px;
   width: 140px;
-}
-
-.ginkgo-icon,
-.yorkie-icon {
   border-radius: 50%;
   padding: 5px;
+  transition-duration: 0.3s;
+  opacity: var(--photo-opacity);
 }
 
 .ginkgo-icon {

@@ -5,10 +5,24 @@ import linkedLogoLite from "../assets/linkedin-light.png";
 import gitLogo from "../assets/GitHub-Mark-32px.png";
 import gitLogoLite from "../assets/GitHub-Mark-32px-light.png";
 import { useNavigate } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { useLocation } from "react-router-dom";
 
 export default function Header({ mode, setMode, theme, switchTheme }) {
   const navigate = useNavigate();
+  let location = useLocation();
+  console.log(location);
+
+  useEffect(() => {
+    const about = document.getElementsByClassName("about-btn")[0];
+    const projects = document.getElementsByClassName("projects-btn")[0];
+    if (location.pathname === "/about") {
+      about.style.fontWeight = 800;
+      projects.style.fontWeight = 400;
+    } else {
+      about.style.fontWeight = 400;
+      projects.style.fontWeight = 800;
+    }
+  });
 
   setTimeout(() => {
     document.getElementById("flower").addEventListener("click", (e) => {
@@ -31,79 +45,81 @@ export default function Header({ mode, setMode, theme, switchTheme }) {
 
   return (
     <div className="header">
-      <div className="title">
-        <div className="name">
-          Jamie Goodin <span id="flower">🌻</span>
-        </div>
-        <div className="job">Web developer</div>
-      </div>
-      <div className="buttons">
-        <div className="projects-btn-wrapper">
-          <div
-            className="projects-btn"
-            onClick={(e) => {
-              e.preventDefault();
-              if (mode == "about") {
-                const projects = Array.from(
-                  document.getElementsByClassName("about")
-                );
-                for (let node of projects) {
-                  node.style.opacity = 0;
-                }
-                console.log(projects);
-              }
-              setMode("projects");
-              setTimeout(() => {
-                navigate("/");
-              }, 200);
-            }}
-          >
-            Projects
+      <div className="header-content">
+        <div className="title">
+          <div className="name">
+            Jamie Goodin <span id="flower">🌻</span>
           </div>
+          <div className="job">Web developer</div>
         </div>
-        <div className="about-btn-wrapper">
-          <div
-            className="about-btn"
-            onClick={(e) => {
-              e.preventDefault();
-              if (mode == "projects") {
-                const projects = Array.from(
-                  document.getElementsByClassName("project-container")
-                );
-                for (let node of projects) {
-                  node.style.opacity = 0;
+        <div className="buttons">
+          <div className="projects-btn-wrapper">
+            <div
+              className="projects-btn"
+              onClick={(e) => {
+                e.preventDefault();
+                if (mode == "about") {
+                  const projects = Array.from(
+                    document.getElementsByClassName("about")
+                  );
+                  for (let node of projects) {
+                    node.style.opacity = 0;
+                  }
+                  console.log(projects);
                 }
-                console.log(projects);
-              }
-              setMode("about");
-              setTimeout(() => {
-                navigate("/about");
-              }, 200);
-            }}
-          >
-            About
+                setMode("projects");
+                setTimeout(() => {
+                  navigate("/");
+                }, 200);
+              }}
+            >
+              Projects
+            </div>
           </div>
-        </div>
-        <div className="button linkedin">
-          <a href="https://www.linkedin.com/in/jamie-goodin-073816137/">
-            <img
-              height="30"
-              width="30"
-              src={theme == "dark" ? linkedLogo : linkedLogoLite}
-            />
-          </a>
-        </div>
-        <div className="button github">
-          <a href="http://github.com/jajego">
-            <img
-              src={theme == "dark" ? gitLogo : gitLogoLite}
-              height="32"
-              width="32"
-            />
-          </a>
-        </div>
-        <div className="button mode" onClick={switchTheme}>
-          {theme == "dark" ? "🌙" : "☀️"}
+          <div className="about-btn-wrapper">
+            <div
+              className={`about-btn ${location}`}
+              onClick={(e) => {
+                e.preventDefault();
+                if (mode == "projects") {
+                  const projects = Array.from(
+                    document.getElementsByClassName("project-container")
+                  );
+                  for (let node of projects) {
+                    node.style.opacity = 0;
+                  }
+                  console.log(projects);
+                }
+                setMode("about");
+                setTimeout(() => {
+                  navigate("/about");
+                }, 200);
+              }}
+            >
+              About
+            </div>
+          </div>
+          <div className="button linkedin">
+            <a href="https://www.linkedin.com/in/jamie-goodin-073816137/">
+              <img
+                height="30"
+                width="30"
+                src={theme == "dark" ? linkedLogo : linkedLogoLite}
+              />
+            </a>
+          </div>
+          <div className="button github">
+            <a href="http://github.com/jajego">
+              <img
+                src={theme == "dark" ? gitLogo : gitLogoLite}
+                height="32"
+                width="32"
+              />
+            </a>
+          </div>
+          <div className="button mode" onClick={switchTheme}>
+            {theme == "dark" ? "🌙" : "☀️"}
+          </div>
         </div>
       </div>
     </div>
